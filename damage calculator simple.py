@@ -83,7 +83,7 @@ def strike():
                 # can have an odd number as your critical damage value
 
                 # for display purposes
-                print('crit damage\n d20 roll =',d_20,', dam =', max_dam,', def =', max_def,
+                print('Crit Damage!\n d20 roll =',d_20,', dam =', max_dam,', def =', max_def,
                       ',final damage =', final_dam, ' crit damage =', crit_dam)
 
                 # this is a critical hit            
@@ -104,9 +104,10 @@ def strike():
 
             # when the monster loses all it's HP, you get a taly with average damage and total attacks            
             elif monster_hp < 0:
-                average_dam = total_damage / total_attack
+                total_attack2 = total_attack - 1
+                average_dam = total_damage / total_attack2
 
-                print('Monster dead, congratulations\nTotal Attacks =', total_attack, '; and Average Damage = %.1f' % average_dam)
+                print('Monster dead, congratulations\nTotal Attacks =', total_attack2, '; and Average Damage = %.1f' % average_dam)
                 print('Total damage done = ', total_damage)
                 break
 
