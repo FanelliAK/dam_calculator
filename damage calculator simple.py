@@ -50,6 +50,8 @@ def strike():
             final_dam = max_dam - max_def
             #######################################
             # this equation uses randint(0, x) so that you get a random damage amount
+            # player has full attack + random 0 to attack #
+            # monster defense rolls twice, I don't use * 2 so I can get odd numbers
 
             # if the dice rolls between 2 - 18 it's a standard hit
             if monster_hp > 0 and d_20 <= 18:
@@ -64,7 +66,8 @@ def strike():
                     monster_hp = remaining_hp
                     print('')
                     crit_dam = 0
-
+                    
+                # if dice rolled a hit, but no damage is done then it's blocked
                 else:
                     print('BLOCK!\n')
                     # removing any old damage scores for average damage
