@@ -20,15 +20,15 @@ def strike():
     # loop while monster health is remaining    
     while True:
         
-    # Adds total count to give an average at the end
+        # Adds total count to give an average at the end
         total_attack += 1
         total_damage += final_dam
         total_damage += crit_dam
 
-    # Rolls the 20 sided Dice
+        # Rolls the 20 sided Dice
         d_20 = randint(1, 20)
 
-    # this is a missed attack with the dice roll        
+        # this is a missed attack with the dice roll        
         if d_20 < 2:
 
             print('miss your d_20 roll =', d_20)
@@ -37,8 +37,8 @@ def strike():
             # this is so the average damage doesn't increase on a miss attack
             final_dam = 0
             crit_dam = 0
+            
             continue
-        
         # dice rolled a hit!    
         elif d_20 >= 2:
 
@@ -107,7 +107,12 @@ def strike():
 
             # when the monster loses all it's HP, you get a taly with average damage and total attacks            
             elif monster_hp < 0:
+                # this talies your total attacks, because it loops one more time after monster dies I
+                # remove - 1
+                
                 total_attack2 = total_attack - 1
+                
+                # this get's the average damage
                 average_dam = total_damage / total_attack2
 
                 print('Monster dead, congratulations\nTotal Attacks =', total_attack2, '; and Average Damage = %.1f' % average_dam)
