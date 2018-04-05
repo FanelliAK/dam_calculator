@@ -80,14 +80,15 @@ def strike():
                 # # # # # # # # # # # # # # # # # # # # # #
                 # This is the critical damage calculation #
                 # # # # # # # # # # # # # # # # # # # # # #
-                crit_dam = (max_dam * 2 + randint(0, 1)) - max_def                
+                max_crit = max_dam * 2 + randint(0, 1)
+                crit_dam = max_crit - max_def                
                 ###########################################
                 # the randint(0, 1) is because any number * 2 ends up even, this is so you                
                 # can have an odd number as your critical damage value
 
                 # for display purposes
                 print('Crit Damage!\n d20 roll =',d_20,', dam =', max_dam,', def =', max_def,
-                      ',final damage =', final_dam, ' crit damage =', crit_dam)
+                      ',final damage =', final_dam, ' max_crit/crit damage =', max_crit, '/', crit_dam)
 
                 # this is a critical hit            
                 if crit_dam > 0:
