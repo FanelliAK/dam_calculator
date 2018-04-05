@@ -46,7 +46,7 @@ def strike():
             # Damage Equation # # Damage Equation #
             # # # # # # # # # # # # # # # # # # # #            
             max_dam = player_atk + randint(0, player_atk)            
-            max_def = randint(0, monster_def)                    
+            max_def = randint(0, monster_def) + randint(0, monster_def)                    
             final_dam = max_dam - max_def
             #######################################
             # this equation uses randint(0, x) so that you get a random damage amount
@@ -66,7 +66,7 @@ def strike():
                     crit_dam = 0
 
                 else:
-                    print('BLOCK')
+                    print('BLOCK!\n')
                     # removing any old damage scores for average damage
                     final_damage = 0
                     crit_dam = 0
@@ -77,7 +77,7 @@ def strike():
                 # # # # # # # # # # # # # # # # # # # # # #
                 # This is the critical damage calculation #
                 # # # # # # # # # # # # # # # # # # # # # #
-                crit_dam = final_dam * 2 + randint(0, 1)                
+                crit_dam = (max_dam * 2 + randint(0, 1)) - max_def                
                 ###########################################
                 # the randint(0, 1) is because any number * 2 ends up even, this is so you                
                 # can have an odd number as your critical damage value
@@ -87,7 +87,7 @@ def strike():
                       ',final damage =', final_dam, ' crit damage =', crit_dam)
 
                 # this is a critical hit            
-                if final_dam > 0:
+                if crit_dam > 0:
                     remaining_hp = monster_hp - crit_dam
                     print('Monster Hp =', (remaining_hp), '/ ', total_hp, '\n')
                     monster_hp = remaining_hp
@@ -95,7 +95,7 @@ def strike():
 
                 # if you hit a crit but no damage is done because of defense
                 else:
-                    print('CRIT BLOCK')
+                    print('CRIT BLOCK!!')
                     print('')
                     
                     # removing any old damage scores for average damage
