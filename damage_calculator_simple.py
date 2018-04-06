@@ -1,14 +1,14 @@
 from random import randint
 
 # player attack, adjust as needed!
-player_atk = 100
+player_atk = 10
 
 # monster defense, adjust as needed!
-monster_def = 100
+monster_def = 10
 
 def strike():
     # Set Monster Total hitpoints, will be deducted as calculator rolls
-    monster_hp = 500
+    monster_hp = 100
     
     # Just variables set to make things work
     total_hp = monster_hp
@@ -116,10 +116,16 @@ def strike():
                 average_dam = total_damage / total_attack2
 
                 print('Monster dead, congratulations\nTotal Attacks =', total_attack2, '; and Average Damage = %.1f' % average_dam)
-                print('Total damage done = ', total_damage)
-                break
+                print('Total damage done = ', total_damage, '\n')
+                
+                user_input = input("again? y and enter to run again,\nor hit enter to exit = ")
+                if user_input == "y":
+                    strike()
+                else:    
+                    break
 
 
         else:
             print('error, most likely hitchance calculations with # >=< # is off')
 strike() 
+
