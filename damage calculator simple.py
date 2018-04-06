@@ -1,14 +1,14 @@
 from random import randint
 
 # player attack, adjust as needed!
-player_atk = 10
+player_atk = 100
 
 # monster defense, adjust as needed!
-monster_def = 10
+monster_def = 100
 
 def strike():
     # Set Monster Total hitpoints, will be deducted as calculator rolls
-    monster_hp = 100
+    monster_hp = 500
     
     # Just variables set to make things work
     total_hp = monster_hp
@@ -31,8 +31,7 @@ def strike():
         # this is a missed attack with the dice roll        
         if d_20 < 2:
 
-            print('miss your d_20 roll =', d_20)
-            print(' ')
+            print('Dodge! your d20 roll =', d_20, '\n')            
             
             # this is so the average damage doesn't increase on a miss attack
             final_dam = 0
@@ -48,10 +47,11 @@ def strike():
             max_dam = player_atk + randint(0, player_atk)            
             max_def = randint(0, monster_def) + randint(0, monster_def)                    
             final_dam = max_dam - max_def
-            #######################################
+            # # # # # # # # # # # # # # # # # # # #
+            
             # this equation uses randint(0, x) so that you get a random damage amount
-            # player has full attack + random 0 to attack #
-            # monster defense rolls twice, I don't use * 2 so I can get odd numbers
+            # player has full attack + random 0 to value of attack
+            # monster defense rolls twice, once for each attack additive
 
             # if the dice rolls between 2 - 18 it's a standard hit
             if monster_hp > 0 and d_20 <= 18:
@@ -62,9 +62,9 @@ def strike():
                 if final_dam > 0:
                     # basic attack that rolled and did damage
                     remaining_hp = monster_hp - final_dam
-                    print('Monster Hp =', (remaining_hp), '/ ', total_hp)
+                    print('Monster Hp =', (remaining_hp), '/ ', total_hp, '\n')
                     monster_hp = remaining_hp
-                    print('')
+                    
                     crit_dam = 0
                     
                 # if dice rolled a hit, but no damage is done then it's blocked
@@ -82,7 +82,7 @@ def strike():
                 # # # # # # # # # # # # # # # # # # # # # #
                 max_crit = max_dam * 2 + randint(0, 1)
                 crit_dam = max_crit - max_def                
-                ###########################################
+                # # # # # # # # # # # # # # # # # # # # # #
                 # the randint(0, 1) is because any number * 2 ends up even, this is so you                
                 # can have an odd number as your critical damage value
 
@@ -99,9 +99,8 @@ def strike():
 
                 # if you hit a crit but no damage is done because of defense
                 else:
-                    print('CRIT BLOCK!!')
-                    print('')
-                    
+                    print('CRIT BLOCK!!\n')
+                                        
                     # removing any old damage scores for average damage
                     final_damage = 0
                     crit_dam = 0
@@ -122,5 +121,5 @@ def strike():
 
 
         else:
-            print('error')
+            print('error, most likely hitchance calculations with # >=< # is off')
 strike() 
