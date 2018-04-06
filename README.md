@@ -1,4 +1,5 @@
 
+
 # dam_calculator
 damage_calculator for a roguelite
 
@@ -27,6 +28,7 @@ edit: I realize I suck at explaining things so I copied what can be changed and 
             ###########################################
 
 this spot can be changed if you want your own chance to hit mechanic.
+
     # Rolls the 20 sided Dice
     d_20 = randint(1, 20)
 
