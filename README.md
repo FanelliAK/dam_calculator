@@ -1,5 +1,6 @@
 
 
+
 # dam_calculator
 damage_calculator for a roguelite
 
@@ -34,6 +35,7 @@ this spot can be changed if you want your own chance to hit mechanic.
 
 
   and at top we have
+  
   # player attack, adjust as needed!
   player_atk = 10
   
